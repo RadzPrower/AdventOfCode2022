@@ -35,6 +35,7 @@ namespace AdventOfCode_2022
                 totalCalories += elf.Calories;
             }
 
+            Console.WriteLine("The top elf is carrying a total of " + sortedElves[0].Calories + " calories.");
             Console.WriteLine("The top three elves are carrying a total of : " + totalCalories + " calories.");
             Summary(watch);
         }
