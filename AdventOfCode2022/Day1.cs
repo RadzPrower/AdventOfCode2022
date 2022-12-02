@@ -10,7 +10,6 @@ namespace AdventOfCode_2022
         internal static void Start()
         {
             var lines = TestPrompt(1);
-
             var watch = Stopwatch.StartNew();
 
             var count = 0;

@@ -15,7 +15,7 @@ namespace AdventOfCode_2022
             Console.Clear();
             Console.WriteLine("Which day's assignment do you wish to run?");
             Console.WriteLine("    1. Calorie Counting".PadRight(35) + "14: ???");
-            Console.WriteLine("    2. ???".PadRight(35) + "15: ???");
+            Console.WriteLine("    2. Rock Paper Scissors".PadRight(35) + "15: ???");
             Console.WriteLine("    3. ???".PadRight(35) + "16: ???");
             Console.WriteLine("    4. ???".PadRight(35) + "17: ???");
             Console.WriteLine("    5. ???".PadRight(35) + "18: ???");
