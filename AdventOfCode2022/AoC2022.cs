@@ -16,7 +16,7 @@ namespace AdventOfCode_2022
             Console.WriteLine("Which day's assignment do you wish to run?");
             Console.WriteLine("    1. Calorie Counting".PadRight(35) + "14: ???");
             Console.WriteLine("    2. Rock Paper Scissors".PadRight(35) + "15: ???");
-            Console.WriteLine("    3. ???".PadRight(35) + "16: ???");
+            Console.WriteLine("    3. Rucksack Reorganization".PadRight(35) + "16: ???");
             Console.WriteLine("    4. ???".PadRight(35) + "17: ???");
             Console.WriteLine("    5. ???".PadRight(35) + "18: ???");
             Console.WriteLine("    6. ???".PadRight(35) + "19: ???");
@@ -43,7 +43,7 @@ namespace AdventOfCode_2022
             switch (day)
             {
                 case 0:
-                    Console.WriteLine("Thank you for participating in Advent of Code 2021!");
+                    Console.WriteLine("Thank you for participating in Advent of Code 2022!");
                     Console.ReadLine(); //To hold for final user input to close debug; can be removed in final, command line version
                     break;
                 case 1:
