@@ -17,7 +17,7 @@ namespace AdventOfCode_2022
             Console.WriteLine("    1. Calorie Counting".PadRight(35) + "14: ???");
             Console.WriteLine("    2. Rock Paper Scissors".PadRight(35) + "15: ???");
             Console.WriteLine("    3. Rucksack Reorganization".PadRight(35) + "16: ???");
-            Console.WriteLine("    4. ???".PadRight(35) + "17: ???");
+            Console.WriteLine("    4. Camp Cleanup".PadRight(35) + "17: ???");
             Console.WriteLine("    5. ???".PadRight(35) + "18: ???");
             Console.WriteLine("    6. ???".PadRight(35) + "19: ???");
             Console.WriteLine("    7: ???".PadRight(35) + "20: ???");
