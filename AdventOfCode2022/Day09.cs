@@ -2,7 +2,7 @@
 
 namespace AdventOfCode_2022
 {
-    internal class Day8
+    internal class Day09
     {
         internal static void Start()
         {

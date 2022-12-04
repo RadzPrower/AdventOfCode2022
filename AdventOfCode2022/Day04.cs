@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace AdventOfCode_2022
 {
-    internal class Day4 : AoC2022
+    internal class Day04 : AoC2022
     {
         internal static void Start()
         {

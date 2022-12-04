@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace AdventOfCode_2022
 {
-    internal class Day3 : AoC2022
+    internal class Day03 : AoC2022
     {
         internal static void Start()
         {

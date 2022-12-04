@@ -47,31 +47,31 @@ namespace AdventOfCode_2022
                     Console.ReadLine(); //To hold for final user input to close debug; can be removed in final, command line version
                     break;
                 case 1:
-                    Day1.Start();
+                    Day01.Start();
                     break;
                 case 2:
-                    Day2.Start();
+                    Day02.Start();
                     break;
                 case 3:
-                    Day3.Start();
+                    Day03.Start();
                     break;
                 case 4:
-                    Day4.Start();
+                    Day04.Start();
                     break;
                 case 5:
-                    Day5.Start();
+                    Day05.Start();
                     break;
                 case 6:
-                    Day6.Start();
+                    Day06.Start();
                     break;
                 case 7:
-                    Day7.Start();
+                    Day07.Start();
                     break;
                 case 8:
-                    Day8.Start();
+                    Day08.Start();
                     break;
                 case 9:
-                    Day9.Start();
+                    Day09.Start();
                     break;
                 case 10:
                     Day10.Start();
