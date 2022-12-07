@@ -66,10 +66,14 @@ namespace AdventOfCode_2022
 
             // Output results to console
             Console.WriteLine("The total file size of directories less than 100MB is " + total + ".\n");
-            Console.WriteLine("The total remaning free space before deletion is " + freeSpace + ".");
+            Console.WriteLine("The total remaining free space before deletion is " + freeSpace + ".");
             Console.WriteLine("The needed space for the update is " + neededSpace + ".");
             Console.WriteLine("The directory to be deleted is \"" + delete.Name + "\".");
-            Console.WriteLine("The size of the directory is " + directorySizes[delete] + ".");
+            Console.WriteLine("The size of the directory is " + directorySizes[delete] + ".\n");
+            Console.WriteLine("Name".PadRight(35) + "Size");
+            PrintTree(home);
+            Console.ResetColor();
+            Console.WriteLine();
             Summary(watch);
         }
 
@@ -94,6 +98,35 @@ namespace AdventOfCode_2022
             }
 
             return sizes;
+        }
+
+        // Print a tree view of the directory
+        private static void PrintTree(Directory directory, int depth = 0)
+        {
+            Console.WriteLine(Indent(depth) + "- " + directory.Name);
+
+            foreach (var file in directory.Files)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write((Indent(depth + 2) + "* " + file.Name + " ").PadRight(35));
+
+                Console.ResetColor();
+                Console.WriteLine(file.Size);
+            }
+
+            foreach (var sub in directory.Subfolders)
+            {
+                Console.ResetColor();
+                PrintTree(sub, depth + 2);
+            }
+        }
+
+        // Create an indent for tree depth
+        private static string Indent(int depth)
+        {
+            var result = "";
+            for (int i = 0; i < depth; i++) result += " ";
+            return result;
         }
     }
 
