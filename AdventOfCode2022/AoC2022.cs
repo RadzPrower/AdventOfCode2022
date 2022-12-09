@@ -22,7 +22,7 @@ namespace AdventOfCode_2022
             Console.WriteLine("    6. Tuning Trouble".PadRight(35) + "19: ???");
             Console.WriteLine("    7: No Space Left On Device".PadRight(35) + "20: ???");
             Console.WriteLine("    8: Treetop Tree House".PadRight(35) + "21: ???");
-            Console.WriteLine("    9: ???".PadRight(35) + "22: ???");
+            Console.WriteLine("    9: Rope Bridge".PadRight(35) + "22: ???");
             Console.WriteLine("   10: ???".PadRight(35) + "23: ???");
             Console.WriteLine("   11: ???".PadRight(35) + "24: ???");
             Console.WriteLine("   12: ???".PadRight(35) + "25: ???");
