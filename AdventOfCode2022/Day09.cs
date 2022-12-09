@@ -44,6 +44,9 @@ namespace AdventOfCode_2022
             }
 
             // Output results and performance summary
+            tails[0].PrintHistory();
+            Console.WriteLine();
+            tails[8].PrintHistory();
             Console.WriteLine("The second knot of the rope visits " + tails[0].history.Count + " distinct points.");
             Console.WriteLine("The final knot of the rope visits " + tails[8].history.Count + " distinct points.");
             Summary(watch);
@@ -80,8 +83,11 @@ namespace AdventOfCode_2022
 
     internal class Tail : Knot
     {
-        internal Boolean start = true;
         internal HashSet<string> history = new HashSet<string>();
+        internal int maxX = 0;
+        internal int minX = 0;
+        internal int maxY = 0;
+        internal int minY = 0;
 
         internal Tail()
         {
@@ -91,6 +97,7 @@ namespace AdventOfCode_2022
             history.Add(x.ToString() + "," + y.ToString());
         }
 
+        // Move the tail knot towards the input knot
         internal void Move(Knot knot)
         {
             // Find difference between head and tail positions
@@ -104,8 +111,29 @@ namespace AdventOfCode_2022
                 y += Math.Sign(yDif);
             }
 
+            // Store min/max values for printing
+            if (x > maxX) maxX = x;
+            if (x < minX) minX = x;
+            if (y > maxY) maxY = y;
+            if (y < minY) minY = y;
+
             // Add current position to history hashset
             history.Add(x.ToString() + ","+ y.ToString());
+        }
+
+        // Print grid for the tail's history
+        internal void PrintHistory()
+        {
+            for (int y = maxY; y >= minY; y--)
+            {
+                for (int x = minX; x <= maxX; x++)
+                {
+                    if (x == 0 && y == 0) Console.Write("S"); // Always print 0,0 as starting point "S"
+                    else if (history.Contains(x + "," + y)) Console.Write("#"); // If tail visited this point, print "#"
+                    else Console.Write("."); // Fill the remainder of the grid with "."
+                }
+                Console.WriteLine();
+            }
         }
     }
 
