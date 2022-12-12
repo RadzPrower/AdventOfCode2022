@@ -25,7 +25,7 @@ namespace AdventOfCode_2022
             Console.WriteLine("    9: Rope Bridge".PadRight(35) + "22: ???");
             Console.WriteLine("   10: Cathode-Ray Tube".PadRight(35) + "23: ???");
             Console.WriteLine("   11: Monkey in the Middle".PadRight(35) + "24: ???");
-            Console.WriteLine("   12: ???".PadRight(35) + "25: ???");
+            Console.WriteLine("   12: Hill Climbing Algorithm".PadRight(35) + "25: ???");
             Console.WriteLine("   13: ???".PadRight(35) + " 0: Quit");
             Console.WriteLine();
             Console.Write("Selection: ");
