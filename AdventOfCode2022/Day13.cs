@@ -20,68 +20,76 @@ namespace AdventOfCode_2022
             var correctPairs = new List<int>();
 
             // Parse input
-            for(int i = 0; i < lines.Length; i += 3, packetIndex++)
-                if (ComparePackets(lines[i], lines[i + 1])) correctPairs.Add(packetIndex);
+            for (int i = 0; i < lines.Length; i += 3, packetIndex++)
+                if (MyComparePackets(lines[i], lines[i + 1])) correctPairs.Add(packetIndex);
 
             // Print results and performance summary
-            Console.WriteLine("The sume of the indices of the correct pairs is " + correctPairs.Sum() + ".");
+            Console.WriteLine("The sum of the indices of the correct pairs is " + correctPairs.Sum() + ".");
             Summary(watch);
+
+            // Answer is between 4084 and 4994
         }
 
-        private static bool ComparePackets(string leftString, string rightString)
+        private static bool MyComparePackets(string leftString, string rightString)
         {
-            var left = (List<object>)ParsePacket(leftString)[0];
-            var right = (List<object>)ParsePacket(rightString)[0];
+            var left = (List<object>)MyParsePacket(leftString)[0];
+            var right = (List<object>)MyParsePacket(rightString)[0];
 
-            if (CompareLists(left, right) == 1) return true;
+            if (MyCompareLists(left, right) == 1) return true;
             else return false;
         }
 
-        private static int CompareLists(List<object> left, List<object> right)
+        private static int MyCompareLists(List<object> left, List<object> right)
         {
-            var maxCount = left.Count;
-            if (maxCount < right.Count) maxCount = right.Count;
+            var maxCount = Math.Max(left.Count, right.Count);
 
-            if (left == right) return -1;
-            else
+            for (int i = 0; i < maxCount; i++)
             {
-                for (int i = 0; i < maxCount; i++)
-                {
-                    if (left.Count <= i) return 1;
-                    if (right.Count <= i) return -1;
+                // If left is empty, order is correct
+                if (left.ElementAtOrDefault(i) == null) return 1;
 
-                    if (left[i].GetType() == typeof(int)
-                        && right[i].GetType() == typeof(int))
-                    {
-                        if ((int)left[i] < (int)right[i]) return 1;
-                        if ((int)left[i] > (int)right[i]) return -1;
-                    }
-                    else if (left[i].GetType() == typeof(int)
-                        && right[i].GetType() == typeof(List<object>))
-                    {
-                        var tempList = new List<object>();
-                        tempList.Add(left[i]);
-                        return CompareLists(tempList, (List<object>)right[i]);
-                    }
-                    else if (left[i].GetType() == typeof(List<object>)
-                        && right[i].GetType() == typeof(int))
-                    {
-                        var tempList = new List<object>();
-                        tempList.Add(right[i]);
-                        return CompareLists((List<object>)left[i], tempList);
-                    }
-                    else
-                    {
-                        var result = CompareLists((List<object>)left[i], (List<object>)right[i]);
-                        if (result != 0) return result;
-                    }
+                // If right is empty, order is not correct
+                if (right.ElementAtOrDefault(i) == null) return -1;
+
+                // If left and right are integers, compare their value
+                if (left[i].GetType() == typeof(int)
+                    && right[i].GetType() == typeof(int))
+                {
+                    // If left is smaller than the right, order is correct
+                    if ((int)left[i] < (int)right[i]) return 1;
+
+                    // If right is smaller than the left, order is not correct
+                    if ((int)left[i] > (int)right[i]) return -1;
+                }
+                // If left is an integer and right is not, convert left to List and compare
+                else if (left[i].GetType() == typeof(int))
+                {
+                    var tempList = new List<object>();
+                    tempList.Add(left[i]);
+                    return MyCompareLists(tempList, (List<object>)right[i]);
+                }
+                // If right is an integer and left is not, convert left to List and compare
+                else if (right[i].GetType() == typeof(int))
+                {
+                    var tempList = new List<object>();
+                    tempList.Add(right[i]);
+                    return MyCompareLists((List<object>)left[i], tempList);
+                }
+                // If both left and right are Lists, compare them
+                else
+                {
+                    // Compare the two lists and store results to see if correct or incorrect
+                    var result = MyCompareLists((List<object>)left[i], (List<object>)right[i]);
+
+                    // If result was not correct or incorrect, continue
+                    if (result != 0) return result;
                 }
             }
 
             return 0;
         }
 
-        private static List<object> ParsePacket(string input)
+        private static List<object> MyParsePacket(string input)
         {
             var tempList = new List<object>();
             var currentIndex = 0;
@@ -111,7 +119,7 @@ namespace AdventOfCode_2022
                         listLength++;
                     }
 
-                    tempList.Add(ParsePacket(input.Substring(listIndex, listLength - 1)));
+                    tempList.Add(MyParsePacket(input.Substring(listIndex, listLength - 1)));
 
                     currentIndex++;
                 }
