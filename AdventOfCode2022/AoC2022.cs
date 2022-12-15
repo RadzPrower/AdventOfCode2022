@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,8 @@ namespace AdventOfCode_2022
             int day = 26;
             Console.Clear();
             Console.WriteLine("Which day's assignment do you wish to run?");
-            Console.WriteLine("    1. Calorie Counting".PadRight(35) + "14: ???");
-            Console.WriteLine("    2. Rock Paper Scissors".PadRight(35) + "15: ???");
+            Console.WriteLine("    1. Calorie Counting".PadRight(35) + "14: Regolith Reservoir");
+            Console.WriteLine("    2. Rock Paper Scissors".PadRight(35) + "15: Beacon Exclusion Zone");
             Console.WriteLine("    3. Rucksack Reorganization".PadRight(35) + "16: ???");
             Console.WriteLine("    4. Camp Cleanup".PadRight(35) + "17: ???");
             Console.WriteLine("    5. Supply Stacks".PadRight(35) + "18: ???");
@@ -155,7 +156,7 @@ namespace AdventOfCode_2022
             return lines;
         }
 
-        internal static void Summary(System.Diagnostics.Stopwatch watch)
+        internal static void Summary(Stopwatch watch)
         {
             watch.Stop();
             double time = watch.ElapsedTicks;
