@@ -215,7 +215,7 @@ namespace AdventOfCode_2022
                     .ToString()
                     .PadLeft(maxY
                     .ToString()
-                    .Length) + ' ');
+                    .Length + 1) + ' ');
 
                 for (int x = minX; x <= maxX; x++)
                 {
