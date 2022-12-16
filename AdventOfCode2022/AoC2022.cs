@@ -17,7 +17,7 @@ namespace AdventOfCode_2022
             Console.WriteLine("Which day's assignment do you wish to run?");
             Console.WriteLine("    1. Calorie Counting".PadRight(35) + "14: Regolith Reservoir");
             Console.WriteLine("    2. Rock Paper Scissors".PadRight(35) + "15: Beacon Exclusion Zone");
-            Console.WriteLine("    3. Rucksack Reorganization".PadRight(35) + "16: ???");
+            Console.WriteLine("    3. Rucksack Reorganization".PadRight(35) + "16: Proboscidea Volcanium");
             Console.WriteLine("    4. Camp Cleanup".PadRight(35) + "17: ???");
             Console.WriteLine("    5. Supply Stacks".PadRight(35) + "18: ???");
             Console.WriteLine("    6. Tuning Trouble".PadRight(35) + "19: ???");
@@ -179,5 +179,16 @@ namespace AdventOfCode_2022
             }
             return sum;
         }
+    }
+    
+    // Some global variables for use between all methods without having to manually pass them each time
+    public static class GlobalVar
+    {
+        public static (int x, int y) start = (0, 0);
+        public static (int x, int y) end = (0, 0);
+        public static Dictionary<(int x, int y), int> visitedNodes = new Dictionary<(int x, int y), int>();
+        public static string[] lines;
+        public static (int x, int y) scenic;
+        internal static int depth;
     }
 }

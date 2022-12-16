@@ -5,16 +5,6 @@ using System.Linq;
 
 namespace AdventOfCode_2022
 {
-    // Some global variables for use between all methods without having to manually pass them each time
-    public static class GlobalVar
-    {
-        public static (int x, int y) start = (0, 0);
-        public static (int x, int y) end = (0, 0);
-        public static Dictionary<(int x, int y), int> visitedNodes = new Dictionary<(int x, int y), int>();
-        public static string[] lines;
-        public static (int x, int y) scenic;
-    }
-
     internal class Day12 : AoC2022
     {
         internal static void Start()
