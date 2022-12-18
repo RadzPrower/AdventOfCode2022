@@ -99,8 +99,6 @@ namespace AdventOfCode_2022
         {
             if (depth >= GlobalVar.depth) return "";
 
-            if (start.Valve == "BB" && end.Valve == "JJ" && visitedCaves.Count == 0) ;
-
             var result = "";
             var caveCount = Int32.MaxValue;
 
